@@ -27,7 +27,7 @@ resource "aws_security_group" "dbsg" {
 resource "aws_instance" "db" {
     ami = "ami-067f8db0a5c2309c0"
     instance_type = "t2.small" 
-    subnet_id = "${aws_subnet.public-sub-1.id}"
+    subnet_id = "${aws_subnet.private-sub.id}"
     vpc_security_group_ids = ["${aws_security_group.dbsg.id}"]
     key_name = "tko-cfox-key"
     user_data_replace_on_change = true
